@@ -1,26 +1,27 @@
 'use strict';
 
-const divisionNumber = getDivisionNumber('Введіть числові значення:');
 
-function getDivisionNumber(someNumber) {
+function average() {
+    const numbers = [ 1, NaN, 12, '123', 2, null, { a: 10 } ];
 
     let data;
-    let result = prompt(someNumber);
-    result = result.split(',');
 
     let resultSum = 0;
     let resultNumber = 0;
 
-    for (let i = 0; i < result.length; i++) {
-
-        let number = Number(result[i]);
-
-        if (!isNaN(number)) {
-            resultSum += number;
+    for (let i = 0; i < numbers.length; i++) {
+        if (!isNaN(numbers[i]) && typeof numbers[i] === 'number') {
+            resultSum += numbers[i];
             resultNumber++;
         }
     }
+
     data = resultSum / resultNumber;
     return data;
 }
-alert(`Середнє арифметичне є: ${divisionNumber}`);
+alert(`Середнє арифметичне є: ${average()}`);
+console.log(average());
+
+// твоя функція
+// const numbers = [ 1, NaN, 12, '123', 2, null, { a: 10 } ];
+// console.log(average(numbers)); // 5
